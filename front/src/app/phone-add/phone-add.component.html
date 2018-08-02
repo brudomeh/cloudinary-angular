@@ -1,0 +1,8 @@
+<h2>Add new phone</h2>
+<form>
+  <input type="text" [(ngModel)]="newPhone.name" name="name" placeholder="name">
+  <input type="text" [(ngModel)]="newPhone.brand" name="brand" placeholder="brand">
+  <input type="text" [(ngModel)]="newPhone.image" name="image" placeholder="image">
+  <input type="file" name="file" ng2FileSelect [uploader]="uploader" />
+  <button type="submit" (click)="addPhone(newPhone)">SUBMIT</button>
+</form>

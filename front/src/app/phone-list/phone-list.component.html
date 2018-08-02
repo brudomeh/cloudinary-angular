@@ -1,0 +1,8 @@
+<div style="text-align: center">
+  <a [routerLink]="['/add']">ADD NEW PHONE</a>
+</div>
+
+<div class="phone" *ngFor="let phone of phones">
+  <h2>{{phone.brand}} / {{phone.name}}</h2>
+  <a [routerLink]="['/phone',phone._id]"><img [src]="phone.image"/></a>
+</div>

@@ -1,5 +1,8 @@
 const express = require('express');
 const _ = require('lodash');
+const multer = require("multer");
+const uploadCloud = require('../config/cloudinary.js');
+
 
 const simpleCrud = (Model, extensionFn) => {
     let router  = express.Router();
@@ -19,10 +22,15 @@ const simpleCrud = (Model, extensionFn) => {
     })
     
     // CRUD: CREATE
-    router.post('/',(req,res,next) => {
+    router.post('/', uploadCloud.single('file'), (req,res,next) => {
         const object = _.pickBy(req.body, (e,k) => paths.includes(k));
+        if (req.file.url) object.image = req.file.url;
         Model.create(object)
-            .then( obj => res.status(200).json(obj))
+            .then( obj => {
+                console.log('obj')
+                console.log(obj)
+                res.status(200).json(obj)
+            })
             .catch(e => next(e))
     })
     

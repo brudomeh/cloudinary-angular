@@ -1,0 +1,15 @@
+<hr>
+
+<a [routerLink]="['']">GO BACK HOME</a>
+
+<div *ngIf="phone">
+  <h2>{{phone.brand}} / {{phone.name}}</h2>
+  <img [src]="phone.image" width="300"/>
+  <h3>Specs</h3>
+  <ul>
+    <li *ngFor="let spec of phone.specs">
+      {{spec}}
+    </li>
+  </ul>
+  <a [routerLink]="['/phone/edit',phone._id]">Edit this phone</a>
+</div>

@@ -1,0 +1,10 @@
+.phone {
+  width: 25%;
+  display: inline-block;
+  text-align: center;
+}
+
+.phone img {
+  width: 200px;
+  max-width: 95%;
+}

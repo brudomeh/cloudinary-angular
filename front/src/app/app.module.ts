@@ -9,12 +9,23 @@ import { routes } from './routes';
 import { FormsModule } from '@angular/forms';
 import { SessionService } from '../services/session';
 import { HttpModule } from '@angular/http';
+import { PhoneDetailsComponent } from './phone-details/phone-details.component';
+import { PhoneAddComponent } from './phone-add/phone-add.component';
+import { PhoneListComponent } from './phone-list/phone-list.component';
+import { PhoneEditComponent } from './phone-edit/phone-edit.component';
+import { PhoneService } from '../services/phone.service';
+import { FileSelectDirective } from 'ng2-file-upload';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    SignupComponent
+    SignupComponent,
+    PhoneDetailsComponent,
+    PhoneAddComponent,
+    PhoneListComponent,
+    PhoneEditComponent,
+    FileSelectDirective
   ],
   imports: [
     BrowserModule,
@@ -22,7 +33,7 @@ import { HttpModule } from '@angular/http';
     FormsModule,
     HttpModule
   ],
-  providers: [SessionService],
+  providers: [SessionService, PhoneService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
